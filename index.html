@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>IMG UPSCALER</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header__title">
+          IMG UPSCALER <br />
+          <span>*without loss of quality</span>
+        </h1>
+        <div class="header__info">
+          <p>
+            contact with me: <br />
+            <strong>Telegram - @dkkasumov</strong> <br />
+            <strong>Instagram - @dkkasumov</strong> <br />
+            <strong>Gmail - davidkasumovfrontend@gmail.com</strong>
+          </p>
+          <p class="header__author">developed by David Kasumov</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="upscaler">
+      <div class="container">
+        <h1 class="upscaler__title">Start upscaling</h1>
+        <div class="fileinput">
+          <input
+            id="fileinput"
+            type="file"
+            class="fileinput__input"
+            multiple
+            onchange="upload(this, '.status__text', '#list')"
+          />
+          <div class="fileinput__face">
+            <label for="fileinput" class="fileinput__button">
+              <i class="fa fa-upload">
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="upload"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                  class="svg-inline--fa fa-upload fa-w-16 fa-3x"
+                  width="17"
+                  height="17"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                    class=""
+                  ></path>
+                </svg>
+              </i>
+              Choose files... <br />
+            </label>
+            <button
+              class="fileinput__clear"
+              onclick="clearInput('#fileinput', '.status__text', '#list', '#gallery')"
+            >
+              Clear
+            </button>
+          </div>
+          <small
+            style="
+              font-size: 11px;
+              line-height: 11px;
+              text-align: center;
+              display: block;
+              margin: 7px 0;
+              letter-spacing: 1.3px;
+            "
+          >
+            it is not recommended to upload more than 2 photos
+          </small>
+        </div>
+        <div class="status__text"></div>
+        <p class="upscaler__increase">
+          I want to increase
+          <input
+            class="upscaler__increase-input"
+            type="number"
+            value="2"
+            onchange="increase(this)"
+          />
+          times
+        </p>
+        <button
+          class="start__button fileinput__button"
+          onclick="upscale(this, '.upscaler__increase-input', '#canvas', '#list', '#gallery')"
+        >
+          start
+        </button>
+        <p class="loading">loading...</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div id="gallery"></div>
+    </div>
+
+    <canvas id="canvas" width="100" height="100"></canvas>
+
+    <div id="list"></div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

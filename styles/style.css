@@ -1,0 +1,255 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  padding: 10px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+  0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.header__title {
+  font-size: 30px;
+  text-align: center;
+  line-height: 23px;
+}
+
+.header__title span {
+  font-size: 14px;
+  letter-spacing: 3.9px;
+  font-weight: 300;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.header__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header__info strong {
+  padding-top: 5px;
+  display: inline-block;
+}
+
+.header__author {
+  font-size: 21px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* upscaler section */
+
+.upscaler {
+  padding-top: 25px;
+}
+
+.upscaler__title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 50px;
+  font-size: 30px;
+  letter-spacing: 2.58px;
+}
+
+/* styles for fileinput */
+
+.fileinput__input {
+  display: none;
+}
+
+.fileinput__face {
+  margin: 0 auto;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileinput__button {
+  transition: 0.2s ease-out;
+  font-size: 20px;
+  line-height: 1.5em;
+  padding: 15px;
+  border: 2px solid;
+  font-family: Calibri, sans-serif;
+  color: #444;
+  min-height: 64px;
+  border-color: #444;
+  background-color: #fff;
+  display: block;
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+
+.fileinput__clear {
+  transition: 0.2s ease-out;
+  font-size: 20px;
+  line-height: 1.5em;
+  padding: 15px;
+  border: 2px solid;
+  font-family: Calibri,
+  sans-serif;
+  color: #444;
+  min-height: 64px;
+  border-color: #444;
+  background-color: #fff;
+  display: block;
+  width: 100px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.fileinput__button:hover,
+.fileinput__clear:hover {
+  transform: scale(1.05);
+}
+
+.fileinput__button:active,
+.fileinput__clear:active {
+  transform: scale(0.95);
+}
+
+.status__text {
+  transition: 0.2s ease-out;
+  font-size: 20px;
+  line-height: 1.5em;
+  border: 2px solid;
+  font-family: Calibri, sans-serif;
+  color: #444;
+  border: none;
+  font-size: 15px;
+  line-height: 2em;
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Consolas', sans-serif;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.status__text.active {
+  padding: 15px 15px 0 15px;
+  min-height: 64px;
+}
+
+.upscaler__increase {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  letter-spacing: 1.25px;
+}
+
+.upscaler__increase input {
+  width: 50px;
+  height: 25px;
+  padding: 4px;
+  font-size: 20px;
+  border: 2px solid;
+  font-family: Calibri,
+  sans-serif;
+  color: #444;
+  text-align: left;
+  margin: 0 10px;
+}
+
+.start__button {
+  text-transform: uppercase;
+  margin: 50px auto 0;
+  background: #17D7A0;
+  color: #678983;
+  border-color: #678983;
+}
+
+.start__button[disabled="true"] {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+/* canvas */
+#canvas {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -5;
+}
+
+#list {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -5;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.loading.active {
+  opacity: 1;
+}
+
+#gallery {
+  display: flex;
+  margin-right: -40px;
+}
+
+#gallery .gallery__container {
+  flex: 0 0 calc(33.333% - 40px);
+  margin: 0 40px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#gallery img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#gallery a {
+  text-decoration: none;
+  color: #444;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  border: 2px solid #444;
+  transition: .2s ease-in color, .2s ease-in background;
+  width: max-content;
+  display: block;
+  margin: 0 auto;
+}
+
+#gallery p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#gallery a:hover,
+#gallery a:active {
+  background: #17D7A0;
+}
